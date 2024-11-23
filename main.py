@@ -340,20 +340,20 @@ df_combined = df_combined.reindex(all_players).fillna(0)
 colors = cm.get_cmap('tab20c', len(all_players)).colors 
 player_colors = dict(zip(all_players, colors))  # Map each player to a unique color
 
-# Plot player winnings over poker nights
-plt.figure(figsize=(14, 7))
-for player in df_combined.index:
-    plt.plot(df_combined.columns, df_combined.loc[player], marker='o', label=player, color=player_colors[player])
+# # Plot player winnings over poker nights
+# plt.figure(figsize=(14, 7))
+# for player in df_combined.index:
+#     plt.plot(df_combined.columns, df_combined.loc[player], marker='o', label=player, color=player_colors[player])
 
 
-plt.title('Player Winnings Over Poker Nights')
-plt.xlabel('Poker Nights')
-plt.ylabel('Winnings ($)')
-plt.legend()
-plt.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+# plt.title('Player Winnings Over Poker Nights')
+# plt.xlabel('Poker Nights')
+# plt.ylabel('Winnings ($)')
+# plt.legend()
+# plt.grid(True)
+# plt.xticks(rotation=45)
+# plt.tight_layout()
+# plt.show()
 
 # Summarize the total winnings per player
 player_sums = df_combined.sum(axis=1).sort_values(ascending=False)
@@ -373,18 +373,18 @@ plt.show()
 df_cumulative = df_combined.cumsum(axis=1)
 
 # Plot cumulative winnings over poker nights
-plt.figure(figsize=(14, 7))
-for player in df_cumulative.index:
-    plt.plot(df_cumulative.columns, df_cumulative.loc[player], marker='o', label=player, color=player_colors[player])
+# plt.figure(figsize=(14, 7))
+# for player in df_cumulative.index:
+#     plt.plot(df_cumulative.columns, df_cumulative.loc[player], marker='o', label=player, color=player_colors[player])
 
-plt.title('Cumulative Winnings Over Poker Nights')
-plt.xlabel('Poker Nights')
-plt.ylabel('Cumulative Winnings ($)')
-plt.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize='small')  # Adjust legend for clarity
-plt.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+# plt.title('Cumulative Winnings Over Poker Nights')
+# plt.xlabel('Poker Nights')
+# plt.ylabel('Cumulative Winnings ($)')
+# plt.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize='small')  # Adjust legend for clarity
+# plt.grid(True)
+# plt.xticks(rotation=45)
+# plt.tight_layout()
+# plt.show()
 
 # Step 1: Identify players with fewer than 5 data points
 player_counts = (df_combined != 0).sum(axis=1)  # Count non-zero points
@@ -399,19 +399,19 @@ filtered_colors = cm.get_cmap('tab10', len(filtered_players)).colors  # Use tab1
 player_filtered_colors = dict(zip(filtered_players, filtered_colors))  # Map filtered players to colors
 
 
-# Step 3: Plot the filtered data (Winnings Over Poker Nights)
-plt.figure(figsize=(14, 7))
-for player in df_combined_filtered.index:
-    plt.plot(df_combined_filtered.columns, df_combined_filtered.loc[player], marker='o', label=player, color=player_filtered_colors[player])
+# # Step 3: Plot the filtered data (Winnings Over Poker Nights)
+# plt.figure(figsize=(14, 7))
+# for player in df_combined_filtered.index:
+#     plt.plot(df_combined_filtered.columns, df_combined_filtered.loc[player], marker='o', label=player, color=player_filtered_colors[player])
 
-plt.title('Filtered Winnings Over Poker Nights')
-plt.xlabel('Poker Nights')
-plt.ylabel('Winnings ($)')
-plt.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize='small')
-plt.grid(True)
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+# plt.title('Filtered Winnings Over Poker Nights')
+# plt.xlabel('Poker Nights')
+# plt.ylabel('Winnings ($)')
+# plt.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize='small')
+# plt.grid(True)
+# plt.xticks(rotation=45)
+# plt.tight_layout()
+# plt.show()
 
 # Step 4: Cumulative Winnings Plot
 df_cumulative_filtered = df_combined_filtered.cumsum(axis=1)
